@@ -44,7 +44,7 @@
       </section>
       <section class="todo-view__list" v-if="filtredTodos.length">
         <to-do-card
-          v-for="todo in filtredTodos"
+          v-for="todo in search ? searchResults : filtredTodos"
           :key="todo.fav ? 'fav-' + todo.id : todo.id"
           :todo="todo"
           @favTodo="setFavTodo"
@@ -84,6 +84,7 @@ export default {
       statusFilter: "",
       userFilter: "",
       filtredTodos: [],
+      searchResults: [],
       optionsForFilterByUser: "",
     };
   },
@@ -146,7 +147,7 @@ export default {
       this.filtredTodos = [...this.todos];
     },
     filterBySearch() {
-      this.filtredTodos = this.todos.filter((item) =>
+      this.searchResults = this.filtredTodos.filter((item) =>
         item.title.toLowerCase().includes(this.search.toLowerCase())
       );
     },
