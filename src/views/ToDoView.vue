@@ -221,5 +221,14 @@ export default {
     position: sticky;
     top: 10px;
   }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    section {
+      grid-column: unset;
+    }
+    &__sidebar {
+      position: static;
+    }
+  }
 }
 </style>

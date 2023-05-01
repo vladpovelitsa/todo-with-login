@@ -42,5 +42,8 @@ export default {
   &__buttons {
     padding: 0 25px 25px;
   }
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 }
 </style>
